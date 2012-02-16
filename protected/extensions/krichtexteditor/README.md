@@ -5,7 +5,8 @@ KRichTextEditor generates a rich text editor interface using TinyMCE. It is a si
 
 An example usage would be this in your view, typically `_form`:
 
-```
+```php
+<?php
 Yii::import('ext.krichtexteditor.KRichTextEditor');
 $this->widget('KRichTextEditor', array(
   'model' => $model,
@@ -21,32 +22,46 @@ $this->widget('KRichTextEditor', array(
 Default options
 ---------------
 
-Assigning `options` would overwrite the `$defaultOptions` that will be passed to JavaScript.
+Assigning `$options` would overwrite the `$defaultOptions` that will be passed to JavaScript.
 
-```
-public $defaultOptions = array(
-  'theme' => 'advanced',
-	'theme_advanced_toolbar_location' => 'top',
-	'theme_advanced_toolbar_align' => 'left',
-	'theme_advanced_buttons1' => "bold,italic,underline,strikethrough,|,fontselect,fontsizeselect",
-	'theme_advanced_buttons2' => "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,image,cleanup,code,|,forecolor,backcolor",
-	'theme_advanced_buttons3' => '',
-);
+```php
+<?php
+class KRichTextEditor extends CInputWidget {
+
+...
+
+	public $defaultOptions = array(
+		'theme' => 'advanced',
+		'theme_advanced_toolbar_location' => 'top',
+		'theme_advanced_toolbar_align' => 'left',
+		'theme_advanced_buttons1' => "bold,italic,underline,strikethrough,|,fontselect,fontsizeselect",
+		'theme_advanced_buttons2' => "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,image,cleanup,code,|,forecolor,backcolor",
+		'theme_advanced_buttons3' => '',
+	);
+	
+...
+
+}
 ```
 
-Screenshot
-----------
+Page output
+-----------------
 
 This is the what the browser renders:
 
 ![Screenshot of KRichTextEditor](https://github.com/kahwee/yii-extensions/raw/master/protected/extensions/krichtexteditor/KRichTextEditor-screenshot.png "Screenshot of KRichTextEditor")
 
-JavaScript output
------------------
+If you don't load jQuery in your page, KRichTextEditor will load jQuery additionally.
 
-This is what is being output in your page. If you don't load jQuery in your page, KRichTextEditor will load jQuery additionally.
+### HTML output
 
+```html
+<textarea id="Article_content" name="Article[content]"></textarea>
 ```
+
+### JavaScript output
+
+```html
 <script type="text/javascript" src="/assets/99104da9/jquery.tinymce.js"></script>
 <script type="text/javascript">
 /*<![CDATA[*/
