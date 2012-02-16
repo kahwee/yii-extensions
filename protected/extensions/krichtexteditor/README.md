@@ -1,16 +1,16 @@
 KRichTextEditor
 ===============
 
-KRichTextEditor generates a rich text editor interface using tiny mce.
+KRichTextEditor generates a rich text editor interface using TinyMCE. It is a simple wrapper to [TinyMCE jQuery plugin](http://www.tinymce.com/tryit/jquery_plugin.php).
 
-An example usage would be:
+An example usage would be this in your view, typically `_form`:
 
 ```
 Yii::import('ext.krichtexteditor.KRichTextEditor');
 $this->widget('KRichTextEditor', array(
   'model' => $model,
-	'value' => $model->isNewRecord ? $model->{$name} : '',
-	'attribute' => $name,
+	'value' => $model->isNewRecord ? $model->content : '',
+	'attribute' => 'content',
 	'options' => array(
 		'theme_advanced_resizing' => 'true',
 		'theme_advanced_statusbar_location' => 'bottom',
@@ -18,10 +18,10 @@ $this->widget('KRichTextEditor', array(
 ));
 ```
 
-Assigning options would overwrite the default options that will be passed to tiny mce jquery plugin.
-
 Default options
 ---------------
+
+Assigning `options` would overwrite the `$defaultOptions` that will be passed to JavaScript.
 
 ```
 public $defaultOptions = array(
@@ -34,8 +34,41 @@ public $defaultOptions = array(
 );
 ```
 
+Screenshot
+----------
+
+This is the what the browser renders:
+
+![Screenshot of KRichTextEditor](https://github.com/kahwee/yii-extensions/raw/master/protected/extensions/krichtexteditor/KRichTextEditor-screenshot.png "Screenshot of KRichTextEditor")
+
+JavaScript output
+-----------------
+
+This is what is being output in your page. If you don't load jQuery in your page, KRichTextEditor will load jQuery additionally.
+
+```
+<script type="text/javascript" src="/assets/99104da9/jquery.tinymce.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+	jQuery("#Article_content").tinymce({
+		'theme':'advanced',
+		'theme_advanced_toolbar_location':'top',
+		'theme_advanced_toolbar_align':'left',
+		'theme_advanced_buttons1':'bold,italic,underline,strikethrough,|,fontselect,fontsizeselect',
+		'theme_advanced_buttons2':'bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,image,cleanup,code,|,forecolor,backcolor',
+		'theme_advanced_buttons3':'',
+		'theme_advanced_resizing':'true',
+		'theme_advanced_statusbar_location':'bottom',
+		'script_url':'/assets/99104da9/tiny_mce.js'
+	});
+});
+/*]]>*/
+</script>
+```
+
 More information
 ----------------
  
- * [TinyMce jQuery plugin example](http://www.tinymce.com/tryit/jquery_plugin.php)
- * 
+ * [TinyMCE jQuery plugin example](http://www.tinymce.com/tryit/jquery_plugin.php)
+ * [TinyMCE configuration options](http://www.tinymce.com/wiki.php/Configuration)
