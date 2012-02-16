@@ -9,7 +9,7 @@ An example usage would be this in your view, typically `_form`:
 <?php
 Yii::import('ext.krichtexteditor.KRichTextEditor');
 $this->widget('KRichTextEditor', array(
-  'model' => $model,
+	'model' => $model,
 	'value' => $model->isNewRecord ? $model->content : '',
 	'attribute' => 'content',
 	'options' => array(
@@ -38,7 +38,7 @@ class KRichTextEditor extends CInputWidget {
 		'theme_advanced_buttons2' => "bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,image,cleanup,code,|,forecolor,backcolor",
 		'theme_advanced_buttons3' => '',
 	);
-	
+
 ...
 
 }
@@ -84,6 +84,6 @@ jQuery(function($) {
 
 More information
 ----------------
- 
+
  * [TinyMCE jQuery plugin example](http://www.tinymce.com/tryit/jquery_plugin.php)
  * [TinyMCE configuration options](http://www.tinymce.com/wiki.php/Configuration)
