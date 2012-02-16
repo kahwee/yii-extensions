@@ -47,7 +47,7 @@ class KRichTextEditor extends CInputWidget {
 Page output
 -----------------
 
-This is the what the browser renders:
+This is an example of what the browser can render:
 
 ![Screenshot of KRichTextEditor](https://github.com/kahwee/yii-extensions/raw/master/protected/extensions/krichtexteditor/KRichTextEditor-screenshot.png "Screenshot of KRichTextEditor")
 
