@@ -41,3 +41,4 @@ More information
 ----------------
 
  * [HTML Purifier](http://htmlpurifier.org/live/configdoc/plain.html)
+ * [GitHub](https://github.com/kahwee/yii-extensions/tree/master/protected/extensions/kcolumns)

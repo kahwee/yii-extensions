@@ -87,3 +87,4 @@ More information
 
  * [TinyMCE jQuery plugin example](http://www.tinymce.com/tryit/jquery_plugin.php)
  * [TinyMCE configuration options](http://www.tinymce.com/wiki.php/Configuration)
+ * [GitHub](https://github.com/kahwee/yii-extensions/tree/master/protected/extensions/krichtexteditor)
