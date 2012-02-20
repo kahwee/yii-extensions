@@ -16,21 +16,22 @@ Usage as part of column in `CGridView`:
 ```php
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
-  'dataProvider' => $model->search(),
-  'columns' => array(
-    array(
-      'class' => 'ext.kcolumns.KHtmlPurifierColumn',
-      'name' => 'content',
-      'options' => array(
-        'HTML.AllowedElements' => array('i', 'em', 'strong', 'b', 'sup', 'sub'),
-      ),
-      'truncate_length' => 200, #Number of characters limit for truncation.
-      'truncate_suffix' => '&hellip;', #Ellipses
-    ),
-    array(
-      'name' => 'id',
-    ),
-  ),
+	'dataProvider' => $model->search(),
+	'columns' => array(
+		array(
+			'class' => 'ext.kcolumns.KHtmlPurifierColumn',
+			'name' => 'content',
+			'options' => array(
+				'HTML.AllowedElements' => array('i', 'em', 'strong', 'b', 'sup', 'sub'),
+				'HTML.AllowedAttributes' => array(),
+			),
+			'truncate_length' => 200, #Number of characters limit for truncation.
+			'truncate_suffix' => '&hellip;', #Ellipses
+		),
+		array(
+			'name' => 'id',
+		),
+	),
 ));
 ```
 
