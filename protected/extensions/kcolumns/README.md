@@ -36,7 +36,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 ));
 ```
 
-In the above example, `HTML.AllowedElements` is one of the many configuration options of [HTML Purifier](http://htmlpurifier.org/live/configdoc/plain.html). Specifying a `truncate_length` of 250 truncates the content within 250 characters.
+In the above example, `HTML.AllowedElements` is one of the many configuration options of [HTML Purifier](http://htmlpurifier.org/live/configdoc/plain.html). Specifying a `truncate_length` of 250 truncates the content within 250 characters. It also removes all links and `style` attributes in HTML elements.
 
 Page output
 -----------
