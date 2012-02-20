@@ -45,7 +45,7 @@ class KRichTextEditor extends CInputWidget {
 ```
 
 Page output
------------------
+-----------
 
 This is an example of what the browser can render:
 
