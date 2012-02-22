@@ -5,17 +5,17 @@ Yii::import('zii.widgets.grid.CDataColumn');
 /**
  * KHtmlPurifierColumn represents a grid view column that renders purified html
  * in each of its data cells. It also does truncation when specified.
- * 
- * KHtmlPurifierColumn removes all malicious code (better known as XSS) with a 
- * thoroughly audited, secure yet permissive whitelist. It will also make sure 
+ *
+ * KHtmlPurifierColumn removes all malicious code (better known as XSS) with a
+ * thoroughly audited, secure yet permissive whitelist. It will also make sure
  * the resulting code is standard-compliant.
- * 
+ *
  * It uses CHtmlPurifier which is wrapper of {@link http://htmlpurifier.org HTML Purifier}.
- * 
+ *
  * CHtmlPurifer is provided as part of Yii Framework.
- * 
+ *
  * KHtmlPurifierColumn accepts options from {@link http://htmlpurifier.org/live/configdoc/plain.html HTML Purifier}
- * 
+ *
  * Usage as part of column in CGridView:
  * <pre>
  * $this->widget('zii.widgets.grid.CGridView', array(
@@ -36,7 +36,7 @@ Yii::import('zii.widgets.grid.CDataColumn');
  *   ),
  * ));
  * </pre>
- * 
+ *
  * In the above example, "HTML.AllowedElements" is one of the many configuration
  * options of {@link http://htmlpurifier.org/live/configdoc/plain.html HTML Purifier}
  *
@@ -73,13 +73,13 @@ class KHtmlPurifierColumn extends CDataColumn {
 
 	/**
 	 * Simple truncate function that considers HTML.
-	 * 
+	 *
 	 * @link http://snippets.dzone.com/posts/show/7125
 	 * @author Jonas Raoni Soares Silva
 	 * @param string $text Content itself.
 	 * @param integer $length By number of characters
 	 * @param string $suffix Suffix, defaults to ellipses.
-	 * @param boolean $isHTML 
+	 * @param boolean $isHTML
 	 * @return string Truncated text.
 	 */
 	public function truncate($text, $length, $suffix = '&hellip;', $isHTML = true) {
@@ -109,7 +109,9 @@ class KHtmlPurifierColumn extends CDataColumn {
 		$output2 = (count($tags = array_reverse($tags)) ? '</' . implode('></', $tags) . '>' : '');
 
 		// Find last space or HTML tag (solving problem with last space in HTML tag eg. <span class="new">)
-		$pos = (int) end(end(preg_split('/<.*>| /', $output, -1, PREG_SPLIT_OFFSET_CAPTURE)));
+		$pos_tmp = preg_split('/<.*>| /', $output, -1, PREG_SPLIT_OFFSET_CAPTURE);
+		$pos_tmp = end($pos_tmp);
+		$pos = (int) end($pos_tmp);
 		// Append closing tags to output
 		$output.=$output2;
 
