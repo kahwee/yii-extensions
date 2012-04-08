@@ -8,7 +8,7 @@
  *	Yii::import('ext.krichtexteditor.KRichTextEditor');
  *	$this->widget('KRichTextEditor', array(
  *		'model' => $model,
- *		'value' => $model->isNewRecord ? $model->content : '',
+ *		'value' => $model->isNewRecord ? '' : $model->content,
  *		'attribute' => 'content',
  *		'options' => array(
  *			'theme_advanced_resizing' => 'true',
